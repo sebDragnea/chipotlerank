@@ -1,0 +1,18 @@
+{
+  "name": "chipotlerank-backend",
+  "version": "1.0.0",
+  "type": "commonjs",
+  "scripts": {
+    "dev": "nodemon --exec \"node --no-warnings=ExperimentalWarning\" src/index.js",
+    "start": "node --no-warnings=ExperimentalWarning src/index.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "multer": "^2.0.0",
+    "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  }
+}
