@@ -63,10 +63,7 @@ const upload = multer({
 });
 
 // Middleware
-app.use(cors({
-  origin: process.env.NODE_ENV === 'production' ? true : 'http://localhost:5173',
-  credentials: true,
-}));
+app.use(cors({ origin: true, credentials: true }));
 app.use(express.json());
 
 // Serve uploaded images
@@ -220,9 +217,9 @@ app.post('/api/posts/:id/vote', (req, res) => {
   }
 });
 
-// In production, serve the built frontend
-if (process.env.NODE_ENV === 'production') {
-  const distPath = path.join(__dirname, '..', '..', 'frontend', 'dist');
+// Serve the built frontend if it exists
+const distPath = path.join(__dirname, '..', '..', 'frontend', 'dist');
+if (fs.existsSync(distPath)) {
   app.use(express.static(distPath));
   app.get('*', (req, res) => {
     res.sendFile(path.join(distPath, 'index.html'));
