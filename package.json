@@ -4,7 +4,7 @@
   "scripts": {
     "dev": "concurrently \"cd backend && npm run dev\" \"cd frontend && npm run dev\"",
     "build": "cd backend && npm install && cd ../frontend && npm install && npm run build",
-    "start": "node --no-warnings=ExperimentalWarning backend/src/index.js",
+    "start": "node --experimental-sqlite --no-warnings=ExperimentalWarning backend/src/index.js",
     "install:all": "cd backend && npm install && cd ../frontend && npm install"
   },
   "devDependencies": {
